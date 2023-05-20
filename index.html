@@ -165,7 +165,25 @@ p {
 .caption {
     font-size: 16px;
     color: #666;
-    margin-top: 4px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+	text-align: left;
+}
+
+.caption-up {
+    font-size: 16px;
+    color: #666;
+    margin-top: -8px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+	text-align: left;
+}
+
+.caption-right {
+    font-size: 16px;
+    color: #666;
+    margin-top: 0px;
+    margin-left: 0px;
     margin-bottom: 10px;
 	text-align: left;
 }
@@ -501,16 +519,15 @@ pre {
         <h2>Results</h2>
         <hr>
         <p>
-            Below, we illustrate how  multiagent debate procedure can improve performance across a variety of different 
-            domains requiring both factual validity and reasoning.
+            Existing approaches towards improving language models have primarily focused on improving the performance of a
+            single language generator. We illustrate how we may treat different instances of the same language models as a
+            "multiagent society", where individual language model generate and critique the language generations of other instances of the language model.  We find that the final answer generated after such a procedure is both more factually accurate and solves reasoning questions more accurately.  We illustrate below the quantitative difference between multiagent debate and single agent generation on  different domains in reasoning and factual validity.
         </p>
         <figure>
             <a>
-                <center>
-                <img class="centered" width="70%" src="img/accuracy_small.png"> 
-                </center>
+                <img class="centered" width="100%" src="img/accuracy_small.png"> 
             </a>
-            <p class="caption">
+            <p class="caption-up">
                 <b>Multiagent Debate Improves Reasoning and Factual Accuracy.</b> Accuracy of traditional inference and our multi-agent debate over six benchmarks (chess move optimality reported as a normalized score) <br>
         </figure>
     </div>
@@ -519,16 +536,14 @@ pre {
         <h2>Performance with More Agents and Rounds of Debate</h2>
         <hr>
         <p>
-           The underlying performance of multiagent debate further improves with either more agents or more rounds of debate (accuracy of generating the right answer on arithmetic).
+           Throughout the experiments in the paper, we used a total of 3 language models agents which debate for a total of two arounds, due to computational cost. However, the underlying performance of multiagent debate can be substantially improved by either using more agents or by having more of rounds of debate. Below, we report the accuracy of solving arithmetic expressions as these individual factors are varied.
         </p>
         <figure>
             <a>
-                <center>
-                <img class="centered" width="70%" src="img/agent_round.png"> 
-                </center>
+                <img class="centered" width="95%" src="img/agent_round.png"> 
             </a>
-            <p class="caption">
-                <b>a) Performance with Increased Agents.</b> Performance improves as the number of underlying agents involved in debate increases. <b>b) Performance with Increased Rounds.</b> Performance rises as the number of rounds of underlying debate increases. <br>
+            <p class="caption-right">
+                <b>(a) Performance with Increased Agents.</b> Arithmetic performance improves as the number of underlying agents involved in debate increases. <b>(b) Performance with Increased Rounds.</b> Arithmetic performance improves as the number of rounds of underlying debate increases. <br>
         </figure>
     </div>
 
@@ -536,18 +551,20 @@ pre {
         <h2>Debate Between chatGPT and Bard</h2>
         <hr>
         <p>
-           Multiagent debate also improve reasoning performance across different lanuage models. Initially, both language
-           models generate incorrect answers which can be revised based off debate.
+           While we mainly study multiagent debate across multiple instances of the same language model, multiagent debate
+           can also be used to combine different lanuage models together. This enables the strengths of one model to enable
+           better performance in another. Below, we illustrate how a combination of both ChatGPT and Bard can be used together
+           to solve a difficult Grade School Math problem.
         </p>
     </div>
         <figure>
             <a>
                 <center>
-                <img class="centered" width="70%" src="img/gpt_bard.png"> 
+                <img class="centered" width="90%" src="img/gpt_bard.png"> 
                 </center>
             </a>
             <p class="caption">
-                <b>Debate Between chatGPT and Bard.</b> Illustration of debate between different models. While both models generate incorrect responses to the initial GSM8K problem, debate between the models enables them to generate the correct final answer.<br>
+                <b>Debate Between ChatGPT and Bard.</b> Illustration of debate between different models. While both models generate incorrect responses to the initial GSM8K problem, debate between the models enables them to generate the correct final answer.<br>
         </figure>
     </div>
 
