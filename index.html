@@ -68,6 +68,12 @@ section {
     text-align: justify;
     clear: both;
 }
+
+section-left {
+    margin: 32px 0px 32px 0px;
+    text-align: left;
+    clear: both;
+}
 .col-5 {
      width: 20%;
      float: left;
@@ -143,6 +149,7 @@ width: 12.5%;
 .text-center {
     text-align: center;  
 }
+
 .screenshot {
     width: 256px;
     border: 1px solid #ddd;
@@ -307,13 +314,14 @@ figure {
 
 pre {
     font-size: 0.9em;
-    padding-left: 7px;
+    padding-left: 25px;
     padding-right: 7px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 3px;
     background-color: rgb(235, 235, 235);
     overflow-x: auto;
+    text-align: left;
 }
 
 .download-thumb {
@@ -468,11 +476,9 @@ pre {
             <span><sup>2</sup> Google Brain</span><br/>
         </div>
 
-        <!---
         <div class="affil-row">
-            <div class="venue text-center"><b>arXiv preprint</b></div>
+            <div class="venue text-center"><b>ICML 2024</b></div>
         </div>
-        -->
 
         </center>
 
@@ -663,10 +669,21 @@ pre {
         </div>
         </div>
         </div>
+    </div>
+</div>
 
 
-
-    <hr>
+<section class="section-left" id="BibTeX">
+  <div class="container is-max-desktop content column is-full-width">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{du2023improving,
+title={Improving factuality and reasoning in language models through multiagent debate},
+author={Du, Yilun and Li, Shuang and Torralba, Antonio and Tenenbaum, Joshua B and Mordatch, Igor},
+journal={arXiv preprint arXiv:2305.14325},
+year={2023}
+}</code></pre>
+  </div>
+</section>
 
     <section>
         This webpage template was recycled from <a href='https://nv-tlabs.github.io/LION/'>here</a>.
