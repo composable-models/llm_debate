@@ -434,6 +434,48 @@ pre {
   }
 }
 
+
+.related-paper-row {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.related-paper-thumb {
+  height: 230px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.related-paper-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.related-paper-copy {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vspace-top {
+  margin-top: 24px;
+}
+@media screen and (max-width: 767px) {
+  .related-paper-thumb {
+    height: 200px;
+  }
+  .related-paper-copy {
+    min-height: auto;
+    margin-top: 12px;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="bootstrap-grid.css">
 <link rel="stylesheet" href="simplegrid.css">
@@ -441,13 +483,13 @@ pre {
 <script type="text/javascript" src="../js/hidebib.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
     <head>
-        <title> Improving Factuality and Reasoning in Language Models with Multiagent Debate</title>
+        <title>Improving Factuality and Reasoning in Language Models through Multiagent Debate</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:description" content="Improving Factuality and Reasoning in Language Models with Multiagent Debate"/>
+        <meta property="og:description" content="Improving Factuality and Reasoning in Language Models through Multiagent Debate"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:creator" content="@du_yilun">
-        <meta name="twitter:title" content="Multiagent debate improves the performance of language models">
+        <meta name="twitter:title" content="Improving Factuality and Reasoning in Language Models through Multiagent Debate">
         <meta name="twitter:description" content="">
         <meta name="twitter:image" content="">
     </head>
@@ -456,8 +498,7 @@ pre {
 
 <div class="container">
     <div class="paper-title">
-    <h1> 
-        Improving Factuality and Reasoning in Language Models through Multiagent Debate
+    <h1>Improving Factuality and Reasoning in Language Models through Multiagent Debate</h1>
     </div>
 
     <div id="authors">
@@ -508,14 +549,14 @@ pre {
         </center>
     </section>
 
-    <section id="abstract"/>
+    <section id="abstract">
         <hr>
         <h2>Abstract</h2>
         <div class="flex-row">
             <p>
-            Large language models (LLMs) have demonstrated remarkable capabilities in language generation, understanding, and few-shot learning in recent years. An extensive body of work has explored how their performance may be further improved through the tools of prompting, ranging from verification, self-consistency, or intermediate scratchpads.
-    In this paper, we present a complementary approach to improve language responses  where multiple language model instances propose and debate their individual responses and reasoning processes over multiple rounds to arrive at a common final answer.  Our findings indicate that this approach significantly enhances mathematical and strategic reasoning across a number of tasks. We also demonstrate that our approach improves the factual validity of generated content, reducing fallacious answers and hallucinations that contemporary models are prone to. Our approach may be directly applied to existing black-box models and uses identical procedure and prompts for all tasks we investigate.
-    Overall, our findings suggest that such "society of minds" approach has the potential to significantly advance the capabilities of LLMs and pave the way for further breakthroughs in language generation and understanding.
+            Large language models (LLMs) have recently shown remarkable progress in language generation, understanding, and few-shot learning. At the same time, a growing body of work has explored how prompting strategies such as verification, self-consistency, and scratchpads can further improve their performance.
+            In this paper, we present a complementary approach in which multiple instances of a language model propose answers, critique one another, and debate over several rounds before reaching a final answer. We show that this procedure substantially improves mathematical and strategic reasoning across a range of tasks. It also improves factual accuracy, reducing the fallacies and hallucinations that contemporary models often produce. Our method can be applied directly to existing black-box models and uses the same overall procedure and prompts across all of the tasks we study.
+            Overall, our findings suggest that a "society of minds" approach can significantly strengthen language models and offers a promising direction for further advances in language generation and reasoning.
             </p>
         </div>
     </section>
@@ -525,9 +566,7 @@ pre {
         <h2>Results</h2>
         <hr>
         <p>
-            Existing approaches towards improving language models have primarily focused on improving the performance of a
-            single language generator. We illustrate how we may treat different instances of the same language models as a
-            "multiagent society", where individual language model generate and critique the language generations of other instances of the language model.  We find that the final answer generated after such a procedure is both more factually accurate and solves reasoning questions more accurately.  We illustrate below the quantitative difference between multiagent debate and single agent generation on  different domains in reasoning and factual validity.
+            Most approaches for improving language models focus on making a single generator perform better. In contrast, we treat multiple instances of the same language model as a <b>multiagent society</b>, in which different agents propose answers and critique the answers proposed by others. The final answer produced by this debate procedure is both more factually accurate and more effective on reasoning tasks. Below, we compare multiagent debate with standard single-agent generation across several benchmarks covering reasoning and factuality.
         </p>
         <figure>
             <a>
@@ -542,7 +581,7 @@ pre {
         <h2>Performance with More Agents and Rounds of Debate</h2>
         <hr>
         <p>
-           Throughout the experiments in the paper, we used a total of 3 language models agents which debate for a total of two arounds, due to computational cost. However, the underlying performance of multiagent debate can be substantially improved by either using more agents or by having more of rounds of debate. Below, we report the accuracy of solving arithmetic expressions as these individual factors are varied.
+           In the main experiments, we use three language-model agents that debate for two rounds, largely for computational reasons. However, the performance of multiagent debate can improve further when we increase either the number of agents or the number of debate rounds. Below, we show arithmetic accuracy as each of these factors is varied.
         </p>
         <figure>
             <a>
@@ -554,13 +593,10 @@ pre {
     </div>
 
     <div class="section">
-        <h2>Debate Between chatGPT and Bard</h2>
+        <h2>Debate Between ChatGPT and Bard</h2>
         <hr>
         <p>
-           While we mainly study multiagent debate across multiple instances of the same language model, multiagent debate
-           can also be used to combine different lanuage models together. This enables the strengths of one model to enable
-           better performance in another. Below, we illustrate how a combination of both ChatGPT and Bard can be used together
-           to solve a difficult Grade School Math problem.
+           Although we mainly study debate among multiple instances of the same language model, the same procedure can also be used to combine different language models. This lets the strengths of one model compensate for the weaknesses of another. Below, we show how a combination of ChatGPT and Bard can work together to solve a difficult grade-school math problem.
         </p>
     </div>
         <figure>
@@ -588,88 +624,77 @@ pre {
             </div>
         </div>
     </div>
-
         <div class="section">
-            <h2>Our Related Projects</h2>
+            <h2>Our Work on Multiagent Intelligence</h2>
             <hr>
             <p>
-                Check out our related projects on combining and composing different models! A full list can be found <a href="https://energy-based-model.github.io/Energy-based-Model-MIT/">here</a>!
+                Multiagent debate motivated a broader line of work on <b>scaling intelligence through multiagent computation</b>. Our subsequent papers explore how agents can learn complementary roles, verify candidate solutions, and coordinate their computation more effectively. For a broader perspective connecting these ideas, see <a href="https://yilundu.github.io/perspective/generalization_by_construction.html">Generalization by Construction</a>.
             </p>
 
-
-            <div class='row vspace-top'>
-                <div class="col-sm-3">
-                    <img src='img/compose_pretrain.gif' class='img-fluid'>
+            <div class='row related-paper-row'>
+                <div class="col-sm-4">
+                    <div class='related-paper-thumb'>
+                        <img src='img/multiagent_finetuning_generated.png' class='img-fluid' alt='Multiagent Finetuning visualization'>
+                    </div>
                 </div>
-
-                <div class="col">
+                <div class="col-sm-8 related-paper-copy">
                     <div class='paper-title'>
-                        <a href="https://energy-based-model.github.io/composing-pretrained-models/">Composing Pretrained Models through Iterative Consensus</a>
-
+                        <a href="https://arxiv.org/abs/2501.05707">Multiagent Finetuning: Self Improvement with Diverse Reasoning Chains</a>
                     </div>
                     <div>
-                        We present a method to combine different large pretrained models together by having individual models communicate with each other through iterative consensus. We illustrate how this combination of models can do zero-shot VQA, image generation, reasoning, and image generation.
+                        We study how to <b>train</b> agents to become better members of a collective. Starting from the same base model, we fine-tune different agents on different interaction-generated reasoning traces. This preserves useful diversity, encourages specialization, and turns multiagent computation into a learned inference procedure rather than repeated sampling from interchangeable copies.
                     </div>
                 </div>
             </div>
 
-        <div class="row vspace-top">
-        <div class="col-sm-3">
-            <div class="move-down">
-                <video width="100%" playsinline="" autoplay="" preload="" muted="">
-                    <source src="img/recyle.m4v" type="video/mp4">
-                </video>
-            </div>
-        </div>
-            <div class="col-sm-9">
-              <div class="paper-title">
-                <a href="https://energy-based-model.github.io/reduce-reuse-recycle/">Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC</a>
-            </div>
-            <div>
-                We present a method to combine different diffusion models with different probabilistic operations. To enable this, we propose new samplers, inspired by MCMC, to enable successful compositional generation. Further, we propose an energy-based parameterization of diffusion models which enables the use of new compositional operators and more sophisticated, Metropolis-corrected samplers.
-            </div>
-            </div>
+            <div class="row related-paper-row">
+                <div class="col-sm-4">
+                    <div class='related-paper-thumb'>
+                        <img src='https://yilundu.github.io/data/projects/mav.png' class='img-fluid' alt='Multi-Agent Verification: MATH accuracy as the number of candidate outputs increases'>
+                    </div>
+                </div>
+                <div class="col-sm-8 related-paper-copy">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2502.20379">Multi-Agent Verification: Scaling Test-Time Compute with Multiple Verifiers</a>
+                    </div>
+                    <div>
+                        We show that additional computation can be spent not only on generating more candidate answers, but also on <b>verifying</b> them. Multiple verifiers, each focused on different aspects of a solution, can be combined to evaluate candidate outputs and help select a stronger final answer.
+                    </div>
+                </div>
             </div>
 
-        <div class="row vspace-top">
-        <div class="col-sm-3">
-            <video width="100%" playsinline="" autoplay="" preload="" muted="">
-                <source src="img/teaser_glide.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="col-sm-9">
-          <div class="paper-title">
-            <a href="https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/">Compositional Visual Generation with Composable Diffusion Models</a>
-        </div>
-        <div>
-            We present a method to improve the compositional generalization of diffusion models by composing
-            different diffusion models together, drawing on the close connection of
-            diffusion models with EBMs. We illustrate how compositional operators enable
-            the ability to composing multiple sets of objects together as well as generate images subject to 
-            complex text prompts.
-        </div>
-        </div>
-        </div>
+            <div class="row related-paper-row">
+                <div class="col-sm-4">
+                    <div class='related-paper-thumb'>
+                        <img src='img/slm_mux_generated.png' class='img-fluid' alt='SLM-MUX visualization'>
+                    </div>
+                </div>
+                <div class="col-sm-8 related-paper-copy">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2510.05077">SLM-MUX: Orchestrating Small Language Models for Reasoning</a>
+                    </div>
+                    <div>
+                        Instead of relying on a single large language model, we ask how to <b>select and combine complementary smaller models</b>. The main idea is to route each problem to the most useful subset of models, showing that the organization of computation—and the complementarity of the participating models—can matter as much as raw model scale.
+                    </div>
+                </div>
+            </div>
 
-        <div class="row vspace-top">
-        <div class="col-sm-3">
-            <div class="move-down">
-                <img src="img/comp_cartoon.png" class="img-fluid" alt="comp_carton" style="width:100%">
+            <div class="row related-paper-row">
+                <div class="col-sm-4">
+                    <div class='related-paper-thumb'>
+                        <img src='img/economy_of_minds_results.png' class='img-fluid' alt='Economy of Minds visualization'>
+                    </div>
+                </div>
+                <div class="col-sm-8 related-paper-copy">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2606.02859">Economy of Minds: Emerging Multi-Agent Intelligence with Economic Interactions</a>
+                    </div>
+                    <div>
+                        We investigate how a larger population of agents can be <b>organized adaptively</b>. Economic interactions let agents compete and cooperate, helping determine which specialists should act next and how a collective should allocate its computation on the current problem.
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-sm-9">
-          <div class="paper-title">
-            <a href="https://energy-based-model.github.io/compositional-generation-inference/">Compositional Visual Generation with Energy Based Models</a>
-        </div>
-        <div>
-            We present a set of compositional operators that enable EBMs to exhibit <b>zero-shot compositional</b> visual generation, enabling us to compose visual concepts
-            (through operators of conjunction, disjunction, or negation) together in a zero-shot manner.
-            Our approach enables us to generate faces given a  description
-            ((Smiling AND Female) OR (NOT Smiling AND Male)) or to combine several different objects together.
-        </div>
-        </div>
-        </div>
-    </div>
 </div>
 
 
